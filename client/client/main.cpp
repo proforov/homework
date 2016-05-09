@@ -15,6 +15,10 @@ int main(int argc, const char * argv[]) {
     std::cout << "Type \"exit\" to quit the program" << std::endl;
     char buffer[128];
     
+    //инициализация
+    const CClient & client = CClient("212.59.100.26", 80);
+    client.start();
+    
     bool bBreak = false;
     do{
         std::cin.getline(buffer, sizeof(buffer));
@@ -26,7 +30,11 @@ int main(int argc, const char * argv[]) {
             std::cout << "\"" << strBuf << "\" is unknown command." << std::endl;
         }
     }
-    while ( !bBreak);
+    while ( !bBreak );
+    
+    //остановка клиента
+    client.stop();
+    
     std::cout << "Bye!" << std::endl;
     return 0;
 }

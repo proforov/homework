@@ -31,7 +31,7 @@ private:
     CHttpRequest(const CHttpRequest & copy);
     
 public:
-    CHttpRequest(const char * path, const char * host);
+    CHttpRequest(const char * host, const char * path);
     ~CHttpRequest();
     
     void addHeader(const char * header, const char * value);

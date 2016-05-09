@@ -17,20 +17,17 @@
 class CLinuxConnection : public IConnection{
 private:
     int         _socket;
-    int32_t     _port;
-    std::string _address;
     int32_t     _sockTimeout;
     
 private:
-    CLinuxConnection();
     CLinuxConnection(const CLinuxConnection & anotherConnection);
     
 public:
-    CLinuxConnection( std::string addres, int32_t port );
+    CLinuxConnection();
     virtual ~CLinuxConnection();
     
-    virtual bool    connect();
-    virtual void    setTimeout( int32_t seconds );
+    virtual bool    connect(const char * addres, int port);
+    virtual void    setTimeout( int seconds );
     virtual int     read(unsigned char * buffer);
     virtual int     write(unsigned char * buffer);
 };

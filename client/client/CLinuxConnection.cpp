@@ -14,14 +14,12 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 
-CLinuxConnection::CLinuxConnection( const std::string address, int32_t port ){
-    _address = address;
-    _port = port;
+CLinuxConnection::CLinuxConnection(){
     _socket = -1;
     _sockTimeout = 10;
 }
 
-bool CLinuxConnection::connect(){
+bool CLinuxConnection::connect(std::string addres, int port){
     _socket = socket(AF_INET, SOCK_STREAM, 0);
     if( _socket < 0 ){
         return false;
@@ -37,9 +35,9 @@ bool CLinuxConnection::connect(){
     struct sockaddr_in sin;
     bzero( &sin, sizeof(sin) );
     sin.sin_family = AF_INET;
-    sin.sin_port = htons( _port );
+    sin.sin_port = htons( port );
     
-    inet_pton( AF_INET, _address.c_str(), &sin.sin_addr );
+    inet_pton( AF_INET, addres.c_str(), &sin.sin_addr );
     
     int res = ::connect(_socket, (struct sockaddr *)&sin, sizeof(sin));
     if( res < 0 ){

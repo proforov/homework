@@ -11,22 +11,25 @@
 
 #include <memory>
 #include "IConnection.h"
-#include "INetworkClient.h"
+#include "IService.h"
 
 //Класс для работы с HTTP севером
-class CHttpClient : public INetworkClient{
+class CHttpClient : public IService{
 
 private:
-    std::shared_ptr<IConnection *> _conn;
+    std::shared_ptr<IConnection> _conn;
+    std::string                 _address;
+    int16_t                     _port;
     
 private:
     CHttpClient(const CHttpClient & copy);
     
 public:
-    CHttpClient( IConnection * connection );
+    CHttpClient(IConnection * connection, const char * address, uint16_t port);
     virtual ~CHttpClient();
     
-    virtual std::string get();
+    virtual void get(unsigned int naturalNubmer,
+                            std::function<void(unsigned int n, std::string)> callBack );
 };
 
 #endif /* defined(__client__CHttpClient__) */

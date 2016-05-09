@@ -8,7 +8,7 @@
 
 #include "CHttpRequest.h"
 
-CHttpRequest::CHttpRequest(const char * path, const char * host){
+CHttpRequest::CHttpRequest(const char * host, const char * path){
     _path = path;
     _host = host;
 }
@@ -20,14 +20,6 @@ CHttpRequest::~CHttpRequest(){
 void CHttpRequest::addHeader(const char * header, const char * value){
     _headers.insert( std::pair<const char *, std::string>( header, value ) );
 }
-
-//void CHttpRequest::fillBaseHeaders(){
-//    addHeader(H_USER_AGENT, "simple agent");
-//    addHeader(H_ACCEPT, "text/html, application/json");
-//    addHeader(H_ACCEPT_CHARSET, "utf-8");
-//    addHeader(H_CONNECTION, "keep-alive");
-//    addHeader(H_KEEP_ALIVE, "100");
-//}
 
 const char * CHttpRequest::httpGet(){
     _buffer.str("");
