@@ -18,21 +18,22 @@
 //собственно клиент, реализация требований
 class CClient{
 private:
-    std::thread                             _thread;
-    std::condition_variable                 _condition;
     std::list<std::shared_ptr<IService>>    _services;
+    volatile bool _stopFlag;
+    std::thread * _thread;
     
 private:
-    void getRandomNatumbers();
+    void getRandomNatNumbers();
     
 public:
     CClient( std::string ip, int16_t port );
+    ~CClient();
     
     //start generating numbers
-    void start() const;
+    void start();
     
     //stop generating numbers
-    void stop() const;
+    void stop();
 };
 
 #endif /* defined(__client__CClient__) */

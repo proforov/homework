@@ -17,7 +17,7 @@ class IService{
 public:
     virtual ~IService(){};
     virtual void get(unsigned int naturalNubmer,
-                     std::function<void(unsigned int n, std::string)> callBack);
+                     std::function<void(unsigned int n, std::string)> callBack) = 0;
 };
 
 #endif

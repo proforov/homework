@@ -19,7 +19,7 @@ CLinuxConnection::CLinuxConnection(){
     _sockTimeout = 10;
 }
 
-bool CLinuxConnection::connect(std::string addres, int port){
+bool CLinuxConnection::connect(const char * addres, int port){
     _socket = socket(AF_INET, SOCK_STREAM, 0);
     if( _socket < 0 ){
         return false;
@@ -37,7 +37,7 @@ bool CLinuxConnection::connect(std::string addres, int port){
     sin.sin_family = AF_INET;
     sin.sin_port = htons( port );
     
-    inet_pton( AF_INET, addres.c_str(), &sin.sin_addr );
+    inet_pton( AF_INET, addres, &sin.sin_addr );
     
     int res = ::connect(_socket, (struct sockaddr *)&sin, sizeof(sin));
     if( res < 0 ){

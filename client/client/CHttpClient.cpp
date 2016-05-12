@@ -21,7 +21,7 @@ CHttpClient::~CHttpClient(){
 }
 
 void CHttpClient::get(unsigned int naturalNubmer,
-                             std::function<void(unsigned int n, std::string)> callBack){
+                      std::function<void(unsigned int n, std::string)> callBack){
     
     std::string path = "/expandNumber/" + std::to_string(naturalNubmer);
     std::shared_ptr<CHttpRequest> req(new CHttpRequest( _address.c_str(), path.c_str() ));

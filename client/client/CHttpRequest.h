@@ -13,11 +13,11 @@
 #include <string>
 #include <sstream>
 
-const char * H_USER_AGENT = "User-Agent: ";
-const char * H_ACCEPT = "Accept: ";
-const char * H_ACCEPT_CHARSET = "Accept-Charset: ";
-const char * H_CONNECTION = "Connection: ";
-const char * H_KEEP_ALIVE = "Keep-Alive: ";
+const char * const H_USER_AGENT = "User-Agent: ";
+const char * const H_ACCEPT = "Accept: ";
+const char * const H_ACCEPT_CHARSET = "Accept-Charset: ";
+const char * const H_CONNECTION = "Connection: ";
+const char * const H_KEEP_ALIVE = "Keep-Alive: ";
 
 class CHttpRequest{
 private:

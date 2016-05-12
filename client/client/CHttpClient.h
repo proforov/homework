@@ -29,7 +29,7 @@ public:
     virtual ~CHttpClient();
     
     virtual void get(unsigned int naturalNubmer,
-                            std::function<void(unsigned int n, std::string)> callBack );
+                     std::function<void(unsigned int n, std::string)> callBack );
 };
 
 #endif /* defined(__client__CHttpClient__) */
