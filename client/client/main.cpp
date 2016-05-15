@@ -9,13 +9,23 @@
 #include <signal.h>
 #include <iostream>
 #include <memory>
-#include <unistd.h>
+#include <thread>
+#include <chrono>
 #include "CClient.h"
 #include "CSafeCout.h"
 
+//condition to wait
+std::condition_variable g_waiter;
+std::mutex              g_mutex;
+
+//check for spurious wakeup
 bool run = true;
+
+//handle ctrl+c
 void handle_sigint(int sig){
     run = false;
+    std::unique_lock<std::mutex> lock( g_mutex );
+    g_waiter.notify_one();
 }
 
 int main(int argc, const char * argv[]) {
@@ -36,8 +46,9 @@ int main(int argc, const char * argv[]) {
     client->start();
     
     do{
-        sleep(1);
-        safe::cout << "main\n";
+        std::unique_lock<std::mutex> lock( g_mutex );
+        g_waiter.wait(lock);
+        safe::cout << "main wakeup\n";
     }
     while ( run );
     
