@@ -26,3 +26,9 @@
 *.exe
 *.out
 *.app
+
+# XCode
+**/*.xccheckout
+**/xcuserdata/**/*
+**/Build
+**/*.DS_store

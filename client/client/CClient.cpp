@@ -50,6 +50,10 @@ void CClient::getRandomNatNumbers(){
                     std::unique_lock<std::mutex> lock(_waiterMutex);
                     _waiter.wait_for( lock, end - now );
                 }
+                else{
+                    //time is out
+                    break;
+                }
             }
         }
         safe::cout << "thread exit\n";
