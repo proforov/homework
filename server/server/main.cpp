@@ -40,23 +40,23 @@ int main(int argc, const char * argv[]) {
     safe::cout << "Hi, %username%!\n";
     safe::cout << "Press \"ctrl+c\" to quit the SERVER\n";
     
-    //инициализация
-    std::shared_ptr<HTTPServer> server( new HTTPServer( new CRequestHandlerFactory(),
-                                                        ServerSocket(80),
-                                                        new HTTPServerParams()) );
-    
-    //старт сервера
-    server->start();
-    
-    do{
-        std::unique_lock<std::mutex> lock( g_mutex );
-        g_waiter.wait(lock);
-        safe::cout << "main wakeup\n";
+    try {
+        std::shared_ptr<HTTPServer> server( new HTTPServer( new CRequestHandlerFactory(),
+                                                           ServerSocket(8080),
+                                                           new HTTPServerParams()) );
+        server->start();
+        
+        do{
+            std::unique_lock<std::mutex> lock( g_mutex );
+            g_waiter.wait(lock);
+            safe::cout << "main wakeup\n";
+        }
+        while ( run );
+        
+        server->stop();
+    } catch ( Poco::Exception & ex ) {
+        safe::cout << ex.message().c_str();
     }
-    while ( run );
-    
-    //остановка сервера
-    server->stop();
     
     std::cout << "Bye!" << std::endl;
     return 0;

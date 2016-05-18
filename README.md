@@ -19,3 +19,8 @@
 Для данной задачи эта библиотека слишком тяжела,  однако я ее попробую скомпилировать без лишних зависимотей, типа ssl.
 
 Http клиент будет написан самостоятельно, без использования сторонних библиотек. 
+
+Компиляция POCO c поддержкой С++11 и libc++:
+make clean
+./configure --static --minimal --config=Darwin64-clang-libc++ --poquito --no-tests --no-samples --no-sharedlibs
+make

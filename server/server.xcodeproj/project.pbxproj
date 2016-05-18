@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		7E8DBE021CEA6E0300B6C996 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DBE011CEA6E0300B6C996 /* main.cpp */; };
 		7E8DBE101CEBB78500B6C996 /* CRequestFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DBE0E1CEBB78500B6C996 /* CRequestFactory.cpp */; };
+		7E8DBE121CED082000B6C996 /* libPocoNet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8DBE111CED082000B6C996 /* libPocoNet.a */; };
+		7E8DBE161CED087300B6C996 /* libPocoUtil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8DBE131CED087300B6C996 /* libPocoUtil.a */; };
+		7E8DBE171CED087300B6C996 /* libPocoJSON.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8DBE141CED087300B6C996 /* libPocoJSON.a */; };
+		7E8DBE181CED087300B6C996 /* libPocoFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8DBE151CED087300B6C996 /* libPocoFoundation.a */; };
+		7E8DBE1D1CED094600B6C996 /* CSafeCout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DBE1B1CED094600B6C996 /* CSafeCout.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,9 +31,14 @@
 /* Begin PBXFileReference section */
 		7E8DBDFE1CEA6E0300B6C996 /* server */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = server; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E8DBE011CEA6E0300B6C996 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		7E8DBE0D1CEBB64F00B6C996 /* common */ = {isa = PBXFileReference; lastKnownFileType = folder; name = common; path = ../common; sourceTree = "<group>"; };
 		7E8DBE0E1CEBB78500B6C996 /* CRequestFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CRequestFactory.cpp; sourceTree = "<group>"; };
 		7E8DBE0F1CEBB78500B6C996 /* CRequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRequestFactory.h; sourceTree = "<group>"; };
+		7E8DBE111CED082000B6C996 /* libPocoNet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPocoNet.a; path = ../poco/lib/Darwin/x86_64/libPocoNet.a; sourceTree = "<group>"; };
+		7E8DBE131CED087300B6C996 /* libPocoUtil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPocoUtil.a; path = ../poco/lib/Darwin/x86_64/libPocoUtil.a; sourceTree = "<group>"; };
+		7E8DBE141CED087300B6C996 /* libPocoJSON.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPocoJSON.a; path = ../poco/lib/Darwin/x86_64/libPocoJSON.a; sourceTree = "<group>"; };
+		7E8DBE151CED087300B6C996 /* libPocoFoundation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPocoFoundation.a; path = ../poco/lib/Darwin/x86_64/libPocoFoundation.a; sourceTree = "<group>"; };
+		7E8DBE1B1CED094600B6C996 /* CSafeCout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CSafeCout.cpp; path = ../common/CSafeCout.cpp; sourceTree = "<group>"; };
+		7E8DBE1C1CED094600B6C996 /* CSafeCout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSafeCout.h; path = ../common/CSafeCout.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +46,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E8DBE161CED087300B6C996 /* libPocoUtil.a in Frameworks */,
+				7E8DBE171CED087300B6C996 /* libPocoJSON.a in Frameworks */,
+				7E8DBE181CED087300B6C996 /* libPocoFoundation.a in Frameworks */,
+				7E8DBE121CED082000B6C996 /* libPocoNet.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,9 +59,10 @@
 		7E8DBDF51CEA6E0300B6C996 = {
 			isa = PBXGroup;
 			children = (
-				7E8DBE0D1CEBB64F00B6C996 /* common */,
+				7E8DBE1E1CED095000B6C996 /* common */,
 				7E8DBE001CEA6E0300B6C996 /* server */,
 				7E8DBDFF1CEA6E0300B6C996 /* Products */,
+				7E8DBE1F1CED096400B6C996 /* lib */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,26 @@
 				7E8DBE0F1CEBB78500B6C996 /* CRequestFactory.h */,
 			);
 			path = server;
+			sourceTree = "<group>";
+		};
+		7E8DBE1E1CED095000B6C996 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				7E8DBE1B1CED094600B6C996 /* CSafeCout.cpp */,
+				7E8DBE1C1CED094600B6C996 /* CSafeCout.h */,
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
+		7E8DBE1F1CED096400B6C996 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				7E8DBE131CED087300B6C996 /* libPocoUtil.a */,
+				7E8DBE141CED087300B6C996 /* libPocoJSON.a */,
+				7E8DBE151CED087300B6C996 /* libPocoFoundation.a */,
+				7E8DBE111CED082000B6C996 /* libPocoNet.a */,
+			);
+			name = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +162,7 @@
 			files = (
 				7E8DBE101CEBB78500B6C996 /* CRequestFactory.cpp in Sources */,
 				7E8DBE021CEA6E0300B6C996 /* main.cpp in Sources */,
+				7E8DBE1D1CED094600B6C996 /* CSafeCout.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +250,10 @@
 		7E8DBE061CEA6E0300B6C996 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/proforov/Documents/projects/homework/poco/lib/Darwin/x86_64,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -221,6 +261,10 @@
 		7E8DBE071CEA6E0300B6C996 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/proforov/Documents/projects/homework/poco/lib/Darwin/x86_64,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
