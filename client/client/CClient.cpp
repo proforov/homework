@@ -14,18 +14,23 @@
 #include "CSafeCout.h"
 
 
-CClient::CClient( std::string ip, int16_t port ) :
+CClient::CClient( const char * ip, int16_t port ) :
     _stopFlag(true),
-    _services(),
+    _service(),
     _thread(),
     _done(true)
 {
+    _service.reset( IService::createService( ip, port) );
 }
 
 CClient::~CClient(){
     stop();
 }
 
+void CClient::numberExpandResultHandler(unsigned int num, std::string result){
+    safe::cout << result.c_str();
+    safe::cout << "\n";
+}
 
 //генерим случайное натуральное число
 //генерим случайный интервал времени
@@ -37,6 +42,13 @@ void CClient::getRandomNatNumbers(){
             safe::cout << "generating new number\n";
             
             unsigned int randNum = getRandomNatural(0);
+            
+            std::function<void(unsigned int, std::string)> cb = std::bind(&CClient::numberExpandResultHandler,
+                                                                          this,
+                                                                          std::placeholders::_1,
+                                                                          std::placeholders::_2);
+            _service->get(randNum, cb);
+            
             unsigned int randPeriod = getRandomMilliseconds(randNum);
             
             std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
@@ -84,6 +96,7 @@ void CClient::start(){
     _thread = std::thread(&CClient::getRandomNatNumbers, this);
 }
 
+//may be exceptions, should catch them (to-do)
 void CClient::stop(){
     _stopFlag = true;
     

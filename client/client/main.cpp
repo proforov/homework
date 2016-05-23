@@ -12,7 +12,7 @@
 #include <thread>
 #include <chrono>
 #include "CClient.h"
-#include "CSafeCout.h"
+#include "../../common/CSafeCout.h"
 
 //condition to wait
 std::condition_variable g_waiter;
@@ -42,7 +42,7 @@ int main(int argc, const char * argv[]) {
     safe::cout << "Press \"ctrl+c\" to quit the program\n";
     
     //инициализация
-    std::shared_ptr<CClient> client( new CClient("212.59.100.26", 80) );
+    std::shared_ptr<CClient> client( new CClient("127.0.0.1", 80) );
     client->start();
     
     do{

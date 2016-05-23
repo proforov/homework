@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E7987611CF3A72C00398830 /* IService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E7987601CF3A72C00398830 /* IService.cpp */; };
+		7E7987641CF3A92600398830 /* CSafeCout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E7987621CF3A92600398830 /* CSafeCout.cpp */; };
 		7E8DBDBC1CDFEB3F00B6C996 /* CHttpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DBDBA1CDFEB3F00B6C996 /* CHttpClient.cpp */; };
 		7E8DBDBF1CDFECB400B6C996 /* CHttpRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DBDBD1CDFECB400B6C996 /* CHttpRequest.cpp */; };
 		7E8DBDC21CDFECE600B6C996 /* CHttpResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DBDC01CDFECE600B6C996 /* CHttpResponse.cpp */; };
 		7E8DBDC71CE0AECE00B6C996 /* CClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DBDC51CE0AECE00B6C996 /* CClient.cpp */; };
-		7E8DBDCE1CE529C300B6C996 /* CSafeCout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DBDCC1CE529C300B6C996 /* CSafeCout.cpp */; };
 		7EE0BA241CDBEB4300BE05ED /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0BA231CDBEB4300BE05ED /* main.cpp */; };
 		7EE0BA2E1CDBECBB00BE05ED /* CLinuxConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0BA2C1CDBECBB00BE05ED /* CLinuxConnection.cpp */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7E7987601CF3A72C00398830 /* IService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IService.cpp; sourceTree = "<group>"; };
+		7E7987621CF3A92600398830 /* CSafeCout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CSafeCout.cpp; path = ../../common/CSafeCout.cpp; sourceTree = "<group>"; };
+		7E7987631CF3A92600398830 /* CSafeCout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSafeCout.h; path = ../../common/CSafeCout.h; sourceTree = "<group>"; };
 		7E8DBDBA1CDFEB3F00B6C996 /* CHttpClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CHttpClient.cpp; sourceTree = "<group>"; };
 		7E8DBDBB1CDFEB3F00B6C996 /* CHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHttpClient.h; sourceTree = "<group>"; };
 		7E8DBDBD1CDFECB400B6C996 /* CHttpRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CHttpRequest.cpp; sourceTree = "<group>"; };
@@ -39,8 +43,6 @@
 		7E8DBDC51CE0AECE00B6C996 /* CClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CClient.cpp; sourceTree = "<group>"; };
 		7E8DBDC61CE0AECE00B6C996 /* CClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CClient.h; sourceTree = "<group>"; };
 		7E8DBDC81CE0AF8A00B6C996 /* IService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IService.h; sourceTree = "<group>"; };
-		7E8DBDCC1CE529C300B6C996 /* CSafeCout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CSafeCout.cpp; sourceTree = "<group>"; };
-		7E8DBDCD1CE529C300B6C996 /* CSafeCout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSafeCout.h; sourceTree = "<group>"; };
 		7EE0BA201CDBEB4300BE05ED /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE0BA231CDBEB4300BE05ED /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		7EE0BA2C1CDBECBB00BE05ED /* CLinuxConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CLinuxConnection.cpp; sourceTree = "<group>"; };
@@ -58,11 +60,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E7987651CF3AB4A00398830 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7E7987621CF3A92600398830 /* CSafeCout.cpp */,
+				7E7987631CF3A92600398830 /* CSafeCout.h */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		7E8DBDC31CE0ABD700B6C996 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
 				7E8DBDC41CE0AC0200B6C996 /* IConnection.h */,
 				7E8DBDC81CE0AF8A00B6C996 /* IService.h */,
+				7E7987601CF3A72C00398830 /* IService.cpp */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -108,14 +120,13 @@
 		7EE0BA221CDBEB4300BE05ED /* client */ = {
 			isa = PBXGroup;
 			children = (
+				7E7987651CF3AB4A00398830 /* Common */,
 				7E8DBDCA1CE0B2DA00B6C996 /* Linux */,
 				7E8DBDC91CE0B1E500B6C996 /* Http */,
 				7E8DBDC31CE0ABD700B6C996 /* Interfaces */,
 				7EE0BA231CDBEB4300BE05ED /* main.cpp */,
 				7E8DBDC51CE0AECE00B6C996 /* CClient.cpp */,
 				7E8DBDC61CE0AECE00B6C996 /* CClient.h */,
-				7E8DBDCC1CE529C300B6C996 /* CSafeCout.cpp */,
-				7E8DBDCD1CE529C300B6C996 /* CSafeCout.h */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -178,11 +189,12 @@
 			files = (
 				7EE0BA241CDBEB4300BE05ED /* main.cpp in Sources */,
 				7E8DBDBF1CDFECB400B6C996 /* CHttpRequest.cpp in Sources */,
-				7E8DBDCE1CE529C300B6C996 /* CSafeCout.cpp in Sources */,
 				7E8DBDC71CE0AECE00B6C996 /* CClient.cpp in Sources */,
+				7E7987641CF3A92600398830 /* CSafeCout.cpp in Sources */,
 				7E8DBDBC1CDFEB3F00B6C996 /* CHttpClient.cpp in Sources */,
 				7E8DBDC21CDFECE600B6C996 /* CHttpResponse.cpp in Sources */,
 				7EE0BA2E1CDBECBB00BE05ED /* CLinuxConnection.cpp in Sources */,
+				7E7987611CF3A72C00398830 /* IService.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

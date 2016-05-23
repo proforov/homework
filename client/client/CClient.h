@@ -19,8 +19,8 @@
 //собственно клиент, реализация требований
 class CClient{
 private:
-    //services list
-    std::list<std::shared_ptr<IService>>    _services;
+    //пока только 1 клиент, пул объектов позже, или никогда)
+    std::shared_ptr<IService>  _service;
     
     //check for stop flag
     std::atomic<bool> _stopFlag;
@@ -47,6 +47,9 @@ private:
     //thread function
     void getRandomNatNumbers();
     
+    //callback
+    void numberExpandResultHandler(unsigned int num, std::string result);
+    
     //generate a pseudo random number
     unsigned int getRandomNatural( unsigned int seed );
     
@@ -54,7 +57,7 @@ private:
     unsigned int getRandomMilliseconds( unsigned int seed );
     
 public:
-    CClient( std::string ip, int16_t port );
+    CClient( const char * ip, int16_t port );
     ~CClient();
     
     //start generating numbers

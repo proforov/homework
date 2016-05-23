@@ -30,5 +30,8 @@ void CHttpClient::get(unsigned int naturalNubmer,
     req->addHeader(H_ACCEPT_CHARSET, "utf-8");
     req->addHeader(H_CONNECTION, "keep-alive");
     req->addHeader(H_KEEP_ALIVE, "100");
+    
+    //stub
+    callBack( naturalNubmer, "{ number: 0 }" );
 }
 
