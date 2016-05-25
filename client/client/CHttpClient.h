@@ -25,7 +25,7 @@ private:
     CHttpClient(const CHttpClient & copy);
     
 public:
-    CHttpClient(IConnection * connection, const char * address, uint16_t port);
+    CHttpClient(const char * address, uint16_t port);
     virtual ~CHttpClient();
     
     virtual void get(unsigned int naturalNubmer,

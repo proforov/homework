@@ -14,7 +14,7 @@ const char * HTTP_NOT_FOUND =
 "<!DOCTYPE html> \
 <html>\
 <body>\
-    <h1>The Page Not FOUNd</h1>\
+    <h1>The Page Not Found</h1>\
     <p>There is only one valid path: /expandNumber/%number%</p>\
 </body>\
 </html>";

@@ -35,7 +35,7 @@ public:
     ~CHttpRequest();
     
     void addHeader(const char * header, const char * value);
-    const char * httpGet();
+    std::string httpGet();
 };
 
 #endif /* defined(__client__CHttpRequest__) */

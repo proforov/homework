@@ -16,9 +16,15 @@ class IConnection{
 public:
     virtual         ~IConnection(){};
     virtual bool    connect(const char * address, int port) = 0;
+    
+    //send recieve timeout
     virtual void    setTimeout( int seconds ) = 0;
-    virtual int     read(unsigned char * buffer) = 0;
-    virtual int     write(unsigned char * buffer) = 0;
+    
+    //return true if there is some more data
+    virtual bool     read( char * buffer, uint32_t * size) = 0;
+    
+    //returns count of sent bytes
+    virtual ssize_t     write( const char * buffer, uint32_t size) = 0;
 };
 
 #endif

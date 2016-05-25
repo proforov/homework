@@ -21,7 +21,7 @@ void CHttpRequest::addHeader(const char * header, const char * value){
     _headers.insert( std::pair<const char *, std::string>( header, value ) );
 }
 
-const char * CHttpRequest::httpGet(){
+std::string CHttpRequest::httpGet(){
     _buffer.str("");
     _buffer.clear();
 
@@ -36,6 +36,6 @@ const char * CHttpRequest::httpGet(){
     
     //end headers
     _buffer << std::endl;
-    return _buffer.str().c_str();
+    return _buffer.str();
 }
 

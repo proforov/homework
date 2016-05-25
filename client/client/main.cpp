@@ -42,7 +42,7 @@ int main(int argc, const char * argv[]) {
     safe::cout << "Press \"ctrl+c\" to quit the program\n";
     
     //инициализация
-    std::shared_ptr<CClient> client( new CClient("127.0.0.1", 80) );
+    std::shared_ptr<CClient> client( new CClient("127.0.0.1", 8080) );
     client->start();
     
     do{

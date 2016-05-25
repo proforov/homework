@@ -12,8 +12,7 @@
 
 //factory
 IService * IService::createService( const char * address, int16_t port ){
-    IConnection * connection = new CLinuxConnection();
-    IService * ret = new CHttpClient( connection, address, port );
+    IService * ret = new CHttpClient( address, port );
     return ret;
 }
 

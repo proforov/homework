@@ -51,6 +51,7 @@ void CLinuxConnection::setTimeout(int32_t seconds){
     if( _socket >= 0 ){
         struct timeval timeout = { _sockTimeout, 0 };
         setsockopt (_socket, SOL_SOCKET, SO_SNDTIMEO, (char *)&timeout,sizeof(timeout));
+        setsockopt (_socket, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout,sizeof(timeout));
     }
 }
 
@@ -60,10 +61,21 @@ CLinuxConnection::~CLinuxConnection(){
     }
 }
 
-int32_t CLinuxConnection::read( unsigned char * buffer ){
-    return 0;
+bool CLinuxConnection::read( char * buffer, uint32_t * size){
+    if( _socket < 0  )
+        return false;
+    
+    ssize_t nRcv = recv(_socket, (void *)buffer, *size, 0);
+    if( nRcv <= 0 )
+        return false;
+    
+    *size = (uint32_t)nRcv;
+    return true;
 }
 
-int32_t CLinuxConnection::write( unsigned char * buffer ){
-    return 0;
+ssize_t CLinuxConnection::write( const char * buffer, uint32_t size){
+    if( _socket < 0  )
+        return 0;
+    
+    return send(_socket, (void *)buffer, size, 0);
 }

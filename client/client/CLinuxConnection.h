@@ -28,8 +28,8 @@ public:
     
     virtual bool    connect(const char * addres, int port);
     virtual void    setTimeout( int seconds );
-    virtual int     read(unsigned char * buffer);
-    virtual int     write(unsigned char * buffer);
+    virtual bool     read(char * buffer, uint32_t * size);
+    virtual ssize_t     write(const char * buffer, uint32_t size);
 };
 
 #endif /* defined(__client__CConnection__) */
